@@ -45,25 +45,31 @@
         .factorial-table {
             width: 100%;
             border-collapse: collapse;
+            background-color: white;
         }
         .factorial-table th, .factorial-table td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: center;
         }
-        /* Apply alternating colors to all rows */
-        .factorial-table tr:nth-child(odd) {
-            background-color: #f2f2f2; /* Light grey */
+        /* Header row styling */
+        .factorial-table tr:first-child {
+            background-color: white;
         }
-        .factorial-table tr:nth-child(even) {
-            background-color: #ffffff; /* White */
-        }
-        /* Override for header - will only apply to the TH elements */
         .factorial-table th {
             padding-top: 12px;
             padding-bottom: 12px;
-            background-color: #d1d1d1;
-            color: rgb(0, 0, 0);
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            border-bottom: 2px solid #ddd;
+        }
+        /* Alternating row colors */
+        .factorial-table tr:nth-child(even) {
+            background-color: white;
+        }
+        .factorial-table tr:nth-child(odd):not(:first-child) {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
@@ -151,7 +157,7 @@
 
         function generateFactorialTable(maxNumber) {
             let tableHTML = '<div class="table-container">';
-            tableHTML += '<h4>Below are the factorials of all the numbers from 1 to ' + maxNumber + '</h4>';
+            tableHTML += '<h4 style="text-align: center; margin-bottom: 10px;">Below are the factorials of all the numbers from 1 to ' + maxNumber + '</h4>';
             tableHTML += '<table class="factorial-table">';
             tableHTML += '<tr><th>Number</th><th>Factorial</th></tr>';
             
