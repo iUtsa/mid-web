@@ -122,56 +122,56 @@
 
     <script>
         function showAlert() {
-            alert("This page says\nYou can generate the factorial of integers, if you play the game!");
-        }
+    alert("This page says\nYou can generate the factorial of integers, if you play the game!");
+}
 
-        function playGame() {
-            let number = prompt("This page says\nPlease enter a number");
-            
-            if (number === null) {
-                // User canceled the prompt
-                return;
-            }
-            
-            // Convert to number and validate
-            number = parseInt(number);
-            
-            if (isNaN(number) || number <= 0 || number > 170) {
-                alert("Please enter a valid positive number (max 170 to avoid overflow)");
-                return;
-            }
-            
-            generateFactorialTable(Math.min(number, 9)); // Limit to 9 as shown in the example
-        }
+function playGame() {
+    let number = prompt("This page says\nPlease enter a number");
+    
+    if (number === null) {
+        // User canceled the prompt
+        return;
+    }
+    
+    // Convert to number and validate
+    number = parseInt(number);
+    
+    if (isNaN(number) || number <= 0 || number > 170) {
+        alert("Please enter a valid positive number (max 170 to avoid overflow)");
+        return;
+    }
+    
+    generateFactorialTable(number); // Use the full user input number
+}
 
-        function calculateFactorial(num) {
-            if (num === 0 || num === 1) {
-                return 1;
-            }
-            let result = 1;
-            for (let i = 2; i <= num; i++) {
-                result *= i;
-            }
-            return result;
-        }
+function calculateFactorial(num) {
+    if (num === 0 || num === 1) {
+        return 1;
+    }
+    let result = 1;
+    for (let i = 2; i <= num; i++) {
+        result *= i;
+    }
+    return result;
+}
 
-        function generateFactorialTable(maxNumber) {
-            let tableHTML = '<div class="table-container">';
-            tableHTML += '<h4 style="text-align: center; margin-bottom: 10px;">Below are the factorials of all the numbers from 1 to ' + maxNumber + '</h4>';
-            tableHTML += '<table class="factorial-table">';
-            tableHTML += '<tr><th>Number</th><th>Factorial</th></tr>';
-            
-            for (let i = 1; i <= maxNumber; i++) {
-                tableHTML += '<tr>';
-                tableHTML += '<td>' + i + '!</td>';
-                tableHTML += '<td>' + calculateFactorial(i) + '</td>';
-                tableHTML += '</tr>';
-            }
-            
-            tableHTML += '</table></div>';
-            
-            document.getElementById('results-container').innerHTML = tableHTML;
-        }
+function generateFactorialTable(maxNumber) {
+    let tableHTML = '<div class="table-container">';
+    tableHTML += '<h4 style="text-align: center; margin-bottom: 10px;">Below are the factorials of all the numbers from 1 to ' + maxNumber + '</h4>';
+    tableHTML += '<table class="factorial-table">';
+    tableHTML += '<tr><th>Number</th><th>Factorial</th></tr>';
+    
+    for (let i = 1; i <= maxNumber; i++) {
+        tableHTML += '<tr>';
+        tableHTML += '<td>' + i + '!</td>';
+        tableHTML += '<td>' + calculateFactorial(i) + '</td>';
+        tableHTML += '</tr>';
+    }
+    
+    tableHTML += '</table></div>';
+    
+    document.getElementById('results-container').innerHTML = tableHTML;
+}
     </script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
